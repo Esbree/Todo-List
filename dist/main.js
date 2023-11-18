@@ -1,1 +1,1 @@
-(()=>{"use strict";(()=>{const e=document.createElement("div");e.classList.add("item-div");const t=document.createElement("input"),n=document.createElement("button");n.textContent="add";const d=document.querySelector(".main");e.appendChild(t),e.appendChild(n),d.appendChild(e)})()})();
+(()=>{"use strict";(()=>{const e=document.createElement("div");e.classList.add("bar-div");const t=document.createElement("input"),n=document.createElement("button");n.textContent="add";const d=document.querySelector(".main");e.appendChild(t),e.appendChild(n),d.appendChild(e)})()})();

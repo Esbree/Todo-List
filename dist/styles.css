@@ -17,6 +17,12 @@
   align-items: center;
 }
 
-.item-div {
+.bar-div {
   border: 2px solid red;
+}
+
+.list {
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
 }
