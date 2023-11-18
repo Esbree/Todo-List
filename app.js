@@ -2,8 +2,6 @@ let todos = [];
 
 function addTodo() {
   const newTodoInput = document.getElementById('newTodo');
-  const todoList = document.getElementById('todoList');
-
   const todoText = newTodoInput.value.trim();
 
   if (todoText === '') {
@@ -19,11 +17,19 @@ function addTodo() {
 
   todos.push(todoObject);
 
-  // Clear the input field
   newTodoInput.value = '';
 
-  // Render the updated todo list
   renderTodoList();
+}
+
+function completeTodo(todoId) {
+  const todo = todos.find((todo) => todo.id === todoId);
+
+  if (todo) {
+    todo.completed = true;
+    renderTodoList();
+    console.log(todos);
+  }
 }
 
 function renderTodoList() {
@@ -34,7 +40,9 @@ function renderTodoList() {
     const listItem = document.createElement('li');
     listItem.innerHTML = `
       <span>${todo.text}</span>
-      <button onclick="completeTodo(${todo.id})">Complete</button>
+      <button onclick="completeTodo(${todo.id})" ${
+      todo.completed ? 'disabled' : ''
+    }>Complete</button>
     `;
 
     if (todo.completed) {
@@ -43,15 +51,6 @@ function renderTodoList() {
 
     todoList.appendChild(listItem);
   });
-}
-
-function completeTodo(todoId) {
-  const todoIndex = todos.findIndex((todo) => todo.id === todoId);
-
-  if (todoIndex !== -1) {
-    todos[todoIndex].completed = true;
-    renderTodoList();
-  }
 }
 
 // Initial rendering
